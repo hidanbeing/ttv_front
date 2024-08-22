@@ -13,24 +13,25 @@ const Home = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const [size_x, setSize_x] = useState();
-  const [size_y, setSize_y] = useState();
-  const [type, setType] = useState();
-  const [velocity, setVelocity] = useState();
-  const [font, setFont] = useState();
-  const [fontSize, setFontSize] = useState();
-  const [color, setColor] = useState();
+  const [size, setSize] = useState("가로 (1920, 1080)");
+  const [type, setType] = useState("ko-KR-Wavenet-A");
+  const [velocity, setVelocity] = useState(1.0);
+  const [font, setFont] = useState("NotoSansKR");
 
   const navigate = useNavigate();
 
   const handleFetchVideo = async () => {
+    const videoSize =
+      size === "가로 (1920, 1080)" ? [1920, 1080] : [1080, 1920];
+
     try {
       setLoading(true);
+      console.log(markdown, videoSize, type, velocity, font);
       const response = await axios.post(
         `http://61.254.228.107:1222/markdown`,
         {
           text: markdown,
-          video_size: [size_x, size_y],
+          video_size: videoSize,
           tts_type: type,
           tts_speed: velocity,
           font_path: font,
@@ -68,10 +69,8 @@ const Home = () => {
       <HomeDiv>
         <Title>[ 마크다운 작성 ]</Title>
         <DropdownForm
-          size_x={size_x}
-          setSize_x={setSize_x}
-          size_y={size_y}
-          setSize_y={setSize_y}
+          size={size}
+          setSize={setSize}
           type={type}
           setType={setType}
           velocity={velocity}

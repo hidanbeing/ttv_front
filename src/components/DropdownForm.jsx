@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 export const DropdownForm = ({
-  size_x,
-  setSize_x,
-  size_y,
-  setSize_y,
+  size,
+  setSize,
+
   type,
   setType,
   velocity,
@@ -19,48 +18,41 @@ export const DropdownForm = ({
 
       <SelectDiv>
         <SelectWrapper>
-          <Label>Size</Label>
-          <Select value={size_x} onChange={(e) => setSize_x(e.target.value)}>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-          </Select>
-          <Select value={size_y} onChange={(e) => setSize_y(e.target.value)}>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
+          <Label>사이즈</Label>
+          <Select value={size} onChange={(e) => setSize(e.target.value)}>
+            <option value="small">가로 (1920, 1080)</option>
+            <option value="medium">세로 (1080, 1920)</option>
           </Select>
         </SelectWrapper>
 
         <SelectWrapper>
-          <Label>Type</Label>
+          <Label>목소리</Label>
           <Select value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="normal">Normal</option>
-            <option value="bold">Bold</option>
-            <option value="italic">Italic</option>
+            <option value="ko-KR-Wavenet-A">명랑한 여자목소리</option>
+            <option value="ko-KR-Wavenet-B">차분한 여자목소리</option>
+            <option value="ko-KR-Wavenet-D">명랑한 남자목소리</option>
+            <option value="ko-KR-Wavenet-C">차분한 남자목소리</option>
           </Select>
         </SelectWrapper>
 
         <SelectWrapper>
-          <Label>Font</Label>
+          <Label>폰트</Label>
           <Select value={font} onChange={(e) => setFont(e.target.value)}>
-            <option value="Arial">Arial</option>
-            <option value="Courier">Courier</option>
-            <option value="Georgia">Georgia</option>
+            <option value="NotoSansKR">NotoSansKR</option>
+            <option value="서울남산장체">서울남산장체</option>
           </Select>
         </SelectWrapper>
 
         <SelectWrapper>
-          <Label>Velocity</Label>
+          <Label>속도</Label>
           <Select
             value={velocity}
             onChange={(e) => setVelocity(e.target.value)}
           >
-            <option value="v00">0</option>
-            <option value="v05">0.5</option>
-            <option value="v10">1</option>
-            <option value="v15">1.5</option>
-            <option value="v20">2.0</option>
+            <option value="0.5">0.5</option>
+            <option value="1.0">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2.0">2.0</option>
           </Select>
         </SelectWrapper>
       </SelectDiv>
@@ -90,6 +82,7 @@ const DropDownForm = styled.div`
   width: 100%;
   margin: 30px;
   font-family: "Gowun Dodum", sans-serif;
+  padding: 20px;
 `;
 
 const SelectWrapper = styled.div`
