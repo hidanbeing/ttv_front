@@ -62,7 +62,9 @@ export const LoginForm = () => {
         />
       </Group>
       {error && <ErrorText>{error}</ErrorText>}
-      <Button type="submit">로그인</Button>
+      <Button type="submit" onClick={onSubmit}>
+        로그인
+      </Button>
     </Form>
   );
 };
@@ -109,4 +111,9 @@ const Button = styled.button`
   border-radius: 10px;
   font-family: "IBM Plex Sans KR", sans-serif;
   color: white;
+`;
+
+const ErrorText = styled.p`
+  color: red;
+  font-size: 14px;
 `;

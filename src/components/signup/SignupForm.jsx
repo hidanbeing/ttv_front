@@ -13,14 +13,16 @@ export const SignupForm = () => {
   const onChangeName = (e) => {
     setName(e.target.value);
   };
-  ``;
+
   const onChangeId = (e) => {
     setId(e.target.value);
     setIdAvailable(true); // Reset ID availability when ID is changed
   };
+
   const onChangePw = (e) => {
     setPw(e.target.value);
   };
+
   const onChangePwCheck = (e) => {
     setPwCheck(e.target.value);
   };
